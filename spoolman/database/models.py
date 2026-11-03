@@ -88,7 +88,7 @@ class Spool(Base):
     first_used: Mapped[datetime | None] = mapped_column()
     last_used: Mapped[datetime | None] = mapped_column()
     price: Mapped[float | None] = mapped_column()
-    filament_id: Mapped[int] = mapped_column(ForeignKey("filament.id"))
+    filament_id: Mapped[int] = mapped_column(ForeignKey("filament.id"), index=True)
     filament: Mapped["Filament"] = relationship(back_populates="spools")
     initial_weight: Mapped[float | None] = mapped_column()
     spool_weight: Mapped[float | None] = mapped_column()
